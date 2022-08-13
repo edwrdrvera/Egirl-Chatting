@@ -17,7 +17,7 @@ export default function NavBar() {
             
             Edward's Egirls
           </Typography>
-          <Button color="inherit">Login</Button>
+        
         </Toolbar>
       </AppBar>
     </Box>
