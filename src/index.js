@@ -5,27 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyC05WCwPFrxDI_TZug9PGq6buoFP3cSDcw",
-  authDomain: "egirl-chatting-6dd25.firebaseapp.com",
-  projectId: "egirl-chatting-6dd25",
-  storageBucket: "egirl-chatting-6dd25.appspot.com",
-  messagingSenderId: "323864117588",
-  appId: "1:323864117588:web:0e13bc34be4426f7b208c1",
-  measurementId: "G-47N0QDBLY2"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

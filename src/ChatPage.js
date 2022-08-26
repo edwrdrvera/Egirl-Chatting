@@ -7,6 +7,19 @@ import NavBar from './NavBar';
 import BottomBarChat from './BottomBarChat';
 import { useState } from 'react';
 import Message from './Message';
+import firebaseApp from './Firebase';
+import {
+  addDoc,
+  collection,
+  getFirestore,
+  onSnapshot,
+  query,
+  serverTimestamp,
+  orderBy,
+} from "firebase/firestore";
+
+
+const db = getFirestore(firebaseApp());
 
 function ChatPage() {
   const[state, setState] = useState({chatInput: "edward", 
@@ -49,12 +62,19 @@ currentUser : "psntnick"});
     return messages;
   }
 
-  function sendMessage(event){
+  async function sendMessage(event){ 
+    console.log("send")
     event.preventDefault();
     let newMessages = state.messages;
     newMessages.push({text: state.chatInput,
     author: state.currentUser});
-    setState({...state, messages: newMessages})
+    await addDoc(collection(db, "messages"), {
+      text: state.chatInput,
+      author: state.currentUser,
+      timestamp: serverTimestamp(),
+    });
+
+    window.scrollTo(0, document.body.scrollHeight);
     event.target.reset();
   }
 
